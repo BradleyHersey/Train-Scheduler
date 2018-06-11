@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html  lang = "en-us">
+
+<head>
+	<title>Train Scheduler</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assets/css/reset.css">
+	<link rel="icon" href="https://i.pinimg.com/564x/fe/8a/da/fe8ada4506e556737c4413a614b13033--bh-logo-buddhas-hand.jpg"> 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+	 crossorigin="anonymous">
+	 <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+	 <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="panel panel-success">
+				<div class="panel-heading col-md-12">
+					<h4 class="col-md" id="icon">
+						<i  class="fa fa-train fa-lg"></i> Train Schedule</h4>
+					<h4 class="col-md" id="clock">	
+						<span id="currentTime"></span>
+					</h4>
+				</div>
+				<div class="row">
+					<div class="panel-body">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th class="tableTH">Train Name</th>
+									<th class="tableTH">Destination</th>
+									<th class="tableTH">Frequency (min.)</th>
+									<th class="tableTH">Next Arrival</th>
+									<th class="tableTH">Minutes Away</th>
+									<th class="tableTH"></th>
+								</tr>
+							</thead>
+							<tbody id="schedule">
+
+							</tbody>
+
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="newTrainInput col-md-6">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<h4 id="addTitle">Add New Train</h4>
+						<h4 id="add">
+							<i id="symbol" class="fa fa-plus fa-lg"></i>
+						</h4>
+
+
+					</div>
+					<button class="btn btn-primary" id="Update">Update</button>
+					<div class="panel-body" id="newTrainSchedule" data-status="hide">
+						<form class="form-group">
+							<div role="form" class="form-group">
+
+								<label for="NT">Name of Train:</label>
+								<input type="text" class="form-control" id="trainName" placeholder="Enter Train Name" required>
+							</div>
+							<div role="form" class="form-group">
+
+								<label for="destination">Going To:</label>
+								<input type="text" class="form-control" id="destination" placeholder="Where you headed?">
+							</div>
+							<div role="form" class="form-group">
+
+								<label for="startTime">Train Arrival:
+									<span id=" timeFormat">(Time Format HH:MM)</span>
+								</label>
+								<input type="text" class="form-control" id="startTime" placeholder="">
+							</div>
+							<div role="form" class="form-group">
+
+
+								<label for="frequency">Frequency:</label>
+								<input type="number" class="form-control" id="frequency">
+							</div>
+							<button class="btn btn-primary" id="newTrain">Submit</button>
+							
+
+							</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script text="text/javascript" src="assets/javascript/js1.js"></script>
+	
+	<script type="text/javascript" src="assets/javascript/moment.js"></script>
+</body>
+
+</html>

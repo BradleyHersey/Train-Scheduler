@@ -1,0 +1,90 @@
+body {background-image: url("../Images/cloud.jpg");
+	
+	
+	background-size:100%;
+}
+
+
+.container{
+	margin: 0% 0% 0% 5%;
+	padding:0% 0% 0% 20%;
+}
+
+
+#TS {
+	font-family: 'Patua One', cursive;
+	color:#55e700;
+	font-size: 5vw;
+	line-height: 0px;
+	margin:0px;
+	padding-bottom:0px;
+
+}
+
+#icon {
+	color: aliceblue;
+	float: left;
+	padding:0;
+	text-align: center;
+}
+
+#clock {
+	color: aliceblue;
+	font-family: 'Francois One', sans-serif;
+	text-align: right;
+}
+
+#addTitle {
+	color: azure;
+	font-family: 'Francois One', sans-serif;
+	float: left;
+	padding:0px;
+}
+
+#add {
+	color: aliceblue;
+	font-family: 'Francois One', sans-serif;
+	text-align: right;
+	padding:0;
+}
+
+label {
+	color: #dff0d8;
+	font-family: 'Francois One', sans-serif;
+	margin-top: 5px;
+}
+
+#timeFormat {
+	font-family: 'Francois One', sans-serif;
+	font-size: 12px;
+}
+
+button {
+	font-family: 'Francois One', sans-serif;
+	margin-top: 5px;
+}
+
+div#newTrainSchedule.panel-body{
+	height: 0px;
+	max-height: 200px;
+	visibility: hidden;
+	padding: 0px 15px 0px 15px;
+}
+
+
+
+#newTrain {
+	text-align: right;
+}
+.Rtrain{
+	color: aliceblue;
+}
+.tableTH{
+	color: aliceblue;
+
+}
+#remove{
+	font-style: bold;
+	font-size:70%;
+	border-radius: 100%;
+}
