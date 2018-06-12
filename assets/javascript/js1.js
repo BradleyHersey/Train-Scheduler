@@ -1,17 +1,16 @@
+
 $(function () {
 
-    // Initialize Firebase
-
-
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyAhOktRIXp31V_zeEE1i7ax3mJa3WcTHB4",
-        authDomain: "play-5e4ce.firebaseapp.com",
-        databaseURL: "https://play-5e4ce.firebaseio.com",
-        projectId: "play-5e4ce",
-        storageBucket: "play-5e4ce.appspot.com",
-        messagingSenderId: "595969935385"
-      };
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBbliNwxVqz6uo3p9HGAyKohKJ9sF3Kf8M",
+    authDomain: "train-project-11821.firebaseapp.com",
+    databaseURL: "https://train-project-11821.firebaseio.com",
+    projectId: "train-project-11821",
+    storageBucket: "train-project-11821.appspot.com",
+    messagingSenderId: "992544219276"
+  };
+  
       
     firebase.initializeApp(config);
 
@@ -39,13 +38,15 @@ $(function () {
         $('#startTime').val("");
         $('#frequency').val("");
     })
-
+    
     trainData.ref().on('child_added', function (snapshot) {
         var trainName = snapshot.val().name;
         var destination = snapshot.val().destination;
         var frequency = snapshot.val().frequency;
         var startTime = snapshot.val().startTime;
-
+       // var remove = snapshot.val().remove();
+        var key = snapshot.val().key;
+       
         var remainder = moment().diff(moment.unix(startTime), "minutes") % frequency;
         var minutes = frequency - remainder;
         var arrival = moment().add(minutes, 'm').format('hh:mm A');
@@ -56,7 +57,10 @@ $(function () {
         console.log('Arrival: ', arrival);
        
 
-        $('#schedule').append(`<tr><td class="Rtrain">${trainName}</td><td class="Rtrain">${destination}</td><td class="Rtrain">${frequency}</td><td class="Rtrain" >${arrival}</td><td class="Rtrain">${minutes}</td><td class="removebt"> <button class="btn btn-primary" id="remove">Remove</button></td>`)
+       $('#schedule').append(`<tr><td class="Rtrain">${trainName}</td><td class="Rtrain">${destination}</td><td class="Rtrain">${frequency}</td><td class="Rtrain" >${arrival}</td><td class="Rtrain">${minutes}</td><td class="removebt"> <button class="btn btn-primary delBtn" id="remove" data-key=${key} >Remove</button></td>`)
+       
+    },function (errorObject) {
+        console.log("Errors handled: " + errorObject.code);
     })
 
     $('#add').click(function () {
@@ -70,21 +74,30 @@ $(function () {
     });
     function currentTime() {
         var sec = 1;
-        time = moment().format('HH:mm:ss');
-        searchTime = moment().format('HH:mm');
+       var time =moment().format('MMMM Do YYYY, h:mm:ss a');
+        var searchTime = moment().format('HH:mm');
         $('#currentTime').html(time);
 
         t = setTimeout(function () {
             currentTime();
         }, sec * 1000);
     }
+   
+
     currentTime();
     $('#Update').click(function(){
+        console.log("whats up");
         location.reload();
     });
-    $('#remove').click(function(row){
-        row.closest('tr').remove();
-
-    })
-
+    $(document).on("click",'#remove', function(){
+        console.log("fired");
+         $(this).parent().parent().remove();
+         var path = "https://console.firebase.google.com/u/0/project/train-project-11821/database/train-project-11821/data/";
+         var db = firebase.database();
+         var key = $(this).attr("data-key") ;    
+         var ref = db.ref(); 
+         var survey=db.ref(path+key);                    
+         survey.child(key).remove(); 
+         console.log(key);
+});
 });
