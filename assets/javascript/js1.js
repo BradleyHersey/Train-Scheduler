@@ -96,8 +96,7 @@ $(function () {
          var db = firebase.database();
          var key = $(this).attr("data-key") ;    
          var ref = db.ref(); 
-         var survey=db.ref(path+key);                    
-         survey.child(key).remove(); 
+          trainData.ref().child(key).remove();
          console.log(key);
 });
 });
